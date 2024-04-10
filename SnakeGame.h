@@ -2,18 +2,27 @@
 #define SNAKEGAME_H
 
 #include <QWidget>
+#include <QKeyEvent>
+#include <QPainter>
+#include <QTimer>
+#include <QRandomGenerator>
+#include <QMessageBox>
+#include <QFile>
+#include <QTextStream>
+#include <QVector>
 
 class SnakeGame : public QWidget {
     Q_OBJECT
 
 public:
-    SnakeGame(QWidget *parent = nullptr);
+    explicit SnakeGame(QWidget *parent = nullptr);
+    ~SnakeGame();
 
 protected:
     void paintEvent(QPaintEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
 
-private slots:
+private:
     void moveSnake();
     void generateFood();
     void getRandomWord(const QString& filename, char* randomWord);

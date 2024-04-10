@@ -1,5 +1,4 @@
 #include "SnakeGame.h"
-#include <QMessageBox>
 
 void SnakeGame::moveSnake() {
     QRect head = snake.first();
@@ -21,15 +20,11 @@ void SnakeGame::moveSnake() {
     default:
         break;
     }
-
-    // 检查是否触碰到窗口边界
     if (newHead.left() < 0 || newHead.right() >= width() || newHead.top() < 0 || newHead.bottom() >= height()) {
         timer->stop();
         QMessageBox::information(this, "Game Over", "Game Over");
         return;
     }
-
-    // 检查是否触碰到食物字母
     bool ateFood = false;
     for (int i = 0; i < letters.size(); ++i) {
         if (newHead == letters.at(i).rect) {
@@ -46,18 +41,16 @@ void SnakeGame::moveSnake() {
             break;
         }
     }
-
     if (ateFood) {
         if (strlen(targetchar) == strlen(now)) {
             course++;
-            getRandomWord("Users/notRikka/Downloads/youxiaoword.txt", targetchar);
+            getRandomWord("/Users/duxiaodong/Qt/youxiaoword.txt", targetchar);
             kkk = 0;
             for (int i = 0; i < 20; i++) now[i] = '\0';
         } else {
             kkk++;
         }
     }
-
     if (!ateFood) {
         snake.removeLast();
         snake.prepend(newHead);
