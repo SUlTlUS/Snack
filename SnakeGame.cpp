@@ -7,7 +7,7 @@ SnakeGame::SnakeGame(QWidget *parent) : QWidget(parent) {
     timer->start(160);
     snake.append(QRect(100, 100, 20, 20));
     for (int i = 0; i < 20; i++) now[i] = '\0';
-    getRandomWord("/Users/duxiaodong/Qt/youxiaoword.txt", targetchar);
+    getRandomWord("C:/Users/notRikka/Documents/qtProject/snaketestv02/youxiaoword.txt", targetchar);
     generateFood();
 }
 
