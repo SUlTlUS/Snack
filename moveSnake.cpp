@@ -48,7 +48,7 @@ void SnakeGame::moveSnake() {
         Splayer.soundPlay(getWord);
         if (strlen(targetchar) == strlen(now)) {
             course++;
-            getRandomWord("C:/Users/notRikka/Documents/qtProject/snaketestv02/res/youxiaoword.txt", targetchar);
+            getRandomWord(":/res/youxiaoword.txt", targetchar);
             kkk = 0;
             for (int i = 0; i < 20; i++) now[i] = '\0';
         } else {

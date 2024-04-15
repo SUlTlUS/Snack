@@ -1,1 +1,7 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/">
+        <file>res/gameOver.wav</file>
+        <file>res/getWord.wav</file>
+        <file>res/youxiaoword.txt</file>
+    </qresource>
+</RCC>
