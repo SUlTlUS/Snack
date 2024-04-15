@@ -1,4 +1,5 @@
 #include "SnakeGame.h"
+#include "soundPlay.h"
 
 void SnakeGame::moveSnake() {
     QRect head = snake.first();
@@ -22,6 +23,7 @@ void SnakeGame::moveSnake() {
     }
     if (newHead.left() < 0 || newHead.right() >= width() || newHead.top() < 0 || newHead.bottom() >= height()) {
         timer->stop();
+        Splayer.soundPlay(gameOver);
         QMessageBox::information(this, "Game Over", "Game Over");
         return;
     }
@@ -31,6 +33,7 @@ void SnakeGame::moveSnake() {
             snake.prepend(letters.at(i).rect);
             now[kkk] = letters.at(i).letter.toLatin1();
             if (targetchar[kkk] != now[kkk]) {
+                Splayer.soundPlay(gameOver);
                 timer->stop();
                 QMessageBox::information(this, "Game Over", "Game Over");
                 return;
@@ -42,9 +45,10 @@ void SnakeGame::moveSnake() {
         }
     }
     if (ateFood) {
+        Splayer.soundPlay(getWord);
         if (strlen(targetchar) == strlen(now)) {
             course++;
-            getRandomWord("/Users/duxiaodong/Qt/youxiaoword.txt", targetchar);
+            getRandomWord("C:/Users/notRikka/Documents/qtProject/snaketestv02/res/youxiaoword.txt", targetchar);
             kkk = 0;
             for (int i = 0; i < 20; i++) now[i] = '\0';
         } else {
@@ -58,6 +62,7 @@ void SnakeGame::moveSnake() {
 
     for (int i = 1; i < snake.size(); ++i) {
         if (newHead.intersects(snake.at(i))) {
+            Splayer.soundPlay(gameOver);
             timer->stop();
             QMessageBox::information(this, "Game Over", "Game Over");
             return;

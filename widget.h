@@ -5,7 +5,7 @@
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
-class Widget;
+class snakeGame;
 }
 QT_END_NAMESPACE
 
@@ -17,7 +17,11 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
+private slots:
+    void on_startButton_clicked();
+    void on_exitButton_clicked();
+
 private:
-    Ui::Widget *ui;
+    Ui::snakeGame *ui;
 };
 #endif // WIDGET_H

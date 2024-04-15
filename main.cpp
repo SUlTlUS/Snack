@@ -1,9 +1,8 @@
 #include <QApplication>
-#include "SnakeGame.h"
-
+#include "widget.h"
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-    SnakeGame game;
-    game.show();
+    Widget w;
+    w.show();
     return app.exec();
 }

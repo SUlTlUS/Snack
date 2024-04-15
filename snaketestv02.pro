@@ -1,4 +1,6 @@
 QT       += core gui
+QT       += multimedia
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,10 +18,12 @@ SOURCES += \
     main.cpp \
     moveSnake.cpp \
     paintEvent.cpp \
+    soundPlay.cpp \
     widget.cpp
 
 HEADERS += \
     SnakeGame.h \
+    soundPlay.h \
     widget.h
 
 FORMS += \
@@ -29,3 +33,8 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=
+
+RESOURCES += \
+    res.qrc

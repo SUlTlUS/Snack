@@ -10,7 +10,7 @@
 #include <QFile>
 #include <QTextStream>
 #include <QVector>
-
+#include "soundPlay.h"
 class SnakeGame : public QWidget {
     Q_OBJECT
 
@@ -42,6 +42,7 @@ private:
     int kkk = 0;
     int course = 0;
     int lifecnt = 3;
+    soundPlayer Splayer;
 };
 
 #endif // SNAKEGAME_H
