@@ -1,7 +1,6 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include "SnakeGame.h"
-#include "soundPlay.h"
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -22,9 +21,7 @@ void Widget::on_startButton_clicked()
     connect(game, &SnakeGame::destroyed, game, &QObject::deleteLater);
 }
 
-
 void Widget::on_exitButton_clicked()
 {
     close();
 }
-

@@ -1,7 +1,6 @@
 QT       += core gui
 QT       += multimedia
 
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
@@ -14,6 +13,7 @@ SOURCES += \
     SnakeGame.cpp \
     generateFood.cpp \
     getRandomWord.cpp \
+    highestScores.cpp \
     keyPressEvent.cpp \
     main.cpp \
     moveSnake.cpp \

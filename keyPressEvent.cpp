@@ -1,5 +1,5 @@
 #include "SnakeGame.h"
-#include "soundPlay.h"
+
 void SnakeGame::keyPressEvent(QKeyEvent *event) {
     switch (event->key()) {
     case Qt::Key_Left:

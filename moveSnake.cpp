@@ -24,6 +24,12 @@ void SnakeGame::moveSnake() {
     if (newHead.left() < 0 || newHead.right() >= width() || newHead.top() < 0 || newHead.bottom() >= height()) {
         timer->stop();
         Splayer.soundPlay(gameOver);
+        Bplayer.soundPlay(stop);
+        if (currentScores > highestScores) {
+            highestScores = currentScores;
+            writeHighestScoresToFile(currentScores);
+        }
+
         QMessageBox::information(this, "Game Over", "Game Over");
         return;
     }
@@ -34,6 +40,11 @@ void SnakeGame::moveSnake() {
             now[kkk] = letters.at(i).letter.toLatin1();
             if (targetchar[kkk] != now[kkk]) {
                 Splayer.soundPlay(gameOver);
+                Bplayer.soundPlay(stop);
+                if (currentScores > highestScores) {
+                    highestScores = currentScores;
+                    writeHighestScoresToFile(currentScores);
+                }
                 timer->stop();
                 QMessageBox::information(this, "Game Over", "Game Over");
                 return;
@@ -45,14 +56,26 @@ void SnakeGame::moveSnake() {
         }
     }
     if (ateFood) {
-        Splayer.soundPlay(getWord);
+
         if (strlen(targetchar) == strlen(now)) {
             course++;
+            Splayer.soundPlay(getWord);
             getRandomWord(":/res/youxiaoword.txt", targetchar);
             kkk = 0;
+            currentScores += 20;
+            if (currentScores > highestScores) {
+                highestScores = currentScores;
+                writeHighestScoresToFile(currentScores);
+            }
             for (int i = 0; i < 20; i++) now[i] = '\0';
         } else {
+            Splayer.soundPlay(getWord);
             kkk++;
+            currentScores += 3;
+            if (currentScores > highestScores) {
+                highestScores = currentScores;
+                writeHighestScoresToFile(currentScores);
+            }
         }
     }
     if (!ateFood) {
@@ -63,6 +86,11 @@ void SnakeGame::moveSnake() {
     for (int i = 1; i < snake.size(); ++i) {
         if (newHead.intersects(snake.at(i))) {
             Splayer.soundPlay(gameOver);
+            Bplayer.soundPlay(stop);
+            if (currentScores > highestScores) {
+                highestScores = currentScores;
+                writeHighestScoresToFile(currentScores);
+            }
             timer->stop();
             QMessageBox::information(this, "Game Over", "Game Over");
             return;

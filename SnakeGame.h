@@ -26,6 +26,8 @@ private:
     void moveSnake();
     void generateFood();
     void getRandomWord(const QString& filename, char* randomWord);
+    void writeHighestScoresToFile(int);
+    void readHighestScoresFromFile();
 
 private:
     struct Letter {
@@ -36,13 +38,16 @@ private:
     QList<QRect> snake;
     QList<Letter> letters;
     QTimer *timer;
+    soundPlayer Splayer;
+    soundPlayer Bplayer;
     int direction = Qt::Key_Right;
     int lastDirection = Qt::Key_Right;
     char now[20], targetchar[20];
     int kkk = 0;
     int course = 0;
     int lifecnt = 3;
-    soundPlayer Splayer;
+    int currentScores = 0;
+    int highestScores;
 };
 
 #endif // SNAKEGAME_H

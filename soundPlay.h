@@ -4,7 +4,9 @@
 
 enum SoundType{
     getWord,
-    gameOver
+    gameOver,
+    backgroundMusic,
+    stop
 };
 
 class soundPlayer{
@@ -14,6 +16,7 @@ class soundPlayer{
 
     private :
         QSoundEffect SE;
+        QSoundEffect BGM;
 };
 
 #endif // SOUNDPLAY_H
