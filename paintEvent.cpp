@@ -6,6 +6,11 @@ void SnakeGame::paintEvent(QPaintEvent *event) {
     painter.setBrush(Qt::white);
     painter.drawRect(10, 10, 190, 30);
     painter.drawRect(10, 40, 150, 30);
+    QFont font = painter.font();
+    font.setWeight(QFont::Bold);
+    font.setFamily("Extra-bold");
+    painter.setFont(font);
+    painter.setPen(Qt::red);
     painter.drawText(20, 30, targetchar);
     painter.drawText(20, 60, now);
     painter.drawText(20, 90, "Score: " + QString::number(currentScores));

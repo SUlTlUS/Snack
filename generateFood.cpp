@@ -5,7 +5,7 @@ void SnakeGame::generateFood() {
     letters.clear();
     for (int i = 0; i < 30; ++i) {
         int x = 0, y = 0;
-        while (x <= 195 && y <= 60) {
+        while (x <= 195 && y <= 130) {
             x = QRandomGenerator::global()->bounded(width() / 20) * 20;
             y = QRandomGenerator::global()->bounded(height() / 20) * 20;
         }
