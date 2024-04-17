@@ -22,8 +22,8 @@ void SnakeGame::paintEvent(QPaintEvent *event) {
     painter.setPen(Qt::red);
     painter.drawText(20, 30, targetchar);
     painter.drawText(20, 60, now);
-    painter.drawText(20, 90, "Score: " + QString::number(currentScores));
-    painter.drawText(20, 120, "Highest Score: " + QString::number(highestScores));
+    painter.drawText(20, 95, "Score: " + QString::number(currentScores));
+    painter.drawText(20, 115, "Highest Score: " + QString::number(highestScores));
     for (const Letter &letter : letters) {
         painter.drawText(letter.rect, Qt::AlignCenter, QString(letter.letter));
     }
