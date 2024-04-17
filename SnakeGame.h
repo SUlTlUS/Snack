@@ -11,6 +11,7 @@
 #include <QTextStream>
 #include <QVector>
 #include "soundPlay.h"
+
 class SnakeGame : public QWidget {
     Q_OBJECT
 
@@ -48,6 +49,7 @@ private:
     int lifecnt = 3;
     int currentScores = 0;
     int highestScores;
+    int moveDelay = 160;
 };
 
 #endif // SNAKEGAME_H

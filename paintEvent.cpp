@@ -3,6 +3,15 @@
 void SnakeGame::paintEvent(QPaintEvent *event) {
     Q_UNUSED(event);
     QPainter painter(this);
+    // 绘制网格背景
+    painter.setPen(Qt::lightGray); // 设置网格线的颜色
+    int gridSize = 20; // 定义网格大小
+    for (int x = 0; x <= width(); x += gridSize) {
+        painter.drawLine(x, 0, x, height()); // 垂直线
+    }
+    for (int y = 0; y <= height(); y += gridSize) {
+        painter.drawLine(0, y, width(), y); // 水平线
+    }
     painter.setBrush(Qt::white);
     painter.drawRect(10, 10, 190, 30);
     painter.drawRect(10, 40, 150, 30);
@@ -20,5 +29,6 @@ void SnakeGame::paintEvent(QPaintEvent *event) {
     }
     for (const QRect &rect : snake) {
         painter.fillRect(rect, Qt::green);
+
     }
 }

@@ -11,6 +11,7 @@ CONFIG += c++17
 
 SOURCES += \
     SnakeGame.cpp \
+    gameover.cpp \
     generateFood.cpp \
     getRandomWord.cpp \
     highestScores.cpp \
@@ -23,10 +24,12 @@ SOURCES += \
 
 HEADERS += \
     SnakeGame.h \
+    gameover.h \
     soundPlay.h \
     widget.h
 
 FORMS += \
+    gameover.ui \
     widget.ui
 
 # Default rules for deployment.

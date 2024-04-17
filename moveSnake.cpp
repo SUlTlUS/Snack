@@ -1,5 +1,6 @@
 #include "SnakeGame.h"
 #include "soundPlay.h"
+#include "gameover.h"
 
 void SnakeGame::moveSnake() {
     QRect head = snake.first();
@@ -29,8 +30,8 @@ void SnakeGame::moveSnake() {
             highestScores = currentScores;
             writeHighestScoresToFile(currentScores);
         }
-
-        QMessageBox::information(this, "Game Over", "Game Over");
+        class gameOver *GO = new class gameOver;
+        GO->show();
         return;
     }
     bool ateFood = false;
@@ -46,7 +47,9 @@ void SnakeGame::moveSnake() {
                     writeHighestScoresToFile(currentScores);
                 }
                 timer->stop();
-                QMessageBox::information(this, "Game Over", "Game Over");
+                class gameOver *GO = new class gameOver;
+                GO->show();
+
                 return;
             }
             letters.removeAt(i);
@@ -63,6 +66,10 @@ void SnakeGame::moveSnake() {
             getRandomWord(":/res/youxiaoword.txt", targetchar);
             kkk = 0;
             currentScores += 20;
+            if(moveDelay > 60) {
+                moveDelay -= 20;
+                timer->start(moveDelay);
+            }
             if (currentScores > highestScores) {
                 highestScores = currentScores;
                 writeHighestScoresToFile(currentScores);
@@ -92,7 +99,9 @@ void SnakeGame::moveSnake() {
                 writeHighestScoresToFile(currentScores);
             }
             timer->stop();
-            QMessageBox::information(this, "Game Over", "Game Over");
+            class gameOver *GO = new class gameOver;
+            GO->show();
+
             return;
         }
     }
