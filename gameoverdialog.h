@@ -12,7 +12,7 @@ class GameOverDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit GameOverDialog(QWidget *parent = nullptr);
+    explicit GameOverDialog(int score, int hscore, QWidget *parent = nullptr);
     ~GameOverDialog();
 
 private slots:
@@ -20,8 +20,11 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+
 private:
     Ui::GameOverDialog *ui;
+    int currentScores;
+    int highestScores;
 };
 
 #endif // GAMEOVERDIALOG_H

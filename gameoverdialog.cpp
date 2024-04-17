@@ -3,11 +3,15 @@
 #include "SnakeGame.h"
 
 
-GameOverDialog::GameOverDialog(QWidget *parent)
+GameOverDialog::GameOverDialog(int score,int hscore, QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::GameOverDialog)
+    , currentScores(score)
+    , highestScores(hscore)
 {
     ui->setupUi(this);
+    ui->ScoreLabel->setText(QString::number(currentScores));
+    ui->HScoreLabel->setText(QString::number(highestScores));
 }
 
 GameOverDialog::~GameOverDialog()

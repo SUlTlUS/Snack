@@ -32,7 +32,7 @@ void SnakeGame::moveSnake() {
         }
         // 在moveSnake函数的游戏结束部分替换代码
         close();
-        GameOverDialog dialog(this);
+        GameOverDialog dialog(currentScores, highestScores, this);
         dialog.exec();
         return;
     }
@@ -51,7 +51,7 @@ void SnakeGame::moveSnake() {
                 timer->stop();
                 // 在moveSnake函数的游戏结束部分替换代码
                 close();
-                GameOverDialog dialog(this);
+                GameOverDialog dialog(currentScores, highestScores, this);
                 dialog.exec();
 
                 return;
@@ -105,7 +105,7 @@ void SnakeGame::moveSnake() {
             timer->stop();
             // 在moveSnake函数的游戏结束部分替换代码
             close();
-            GameOverDialog dialog(this);
+            GameOverDialog dialog(currentScores, highestScores, this);
             dialog.exec();
 
             return;
