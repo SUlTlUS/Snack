@@ -19,6 +19,7 @@ void Widget::on_startButton_clicked()
     SnakeGame *game = new SnakeGame;
     game->show();
     connect(game, &SnakeGame::destroyed, game, &QObject::deleteLater);
+    close();
 }
 
 void Widget::on_exitButton_clicked()
