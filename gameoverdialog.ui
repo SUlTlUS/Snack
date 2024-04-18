@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>1000</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
    </property>
    <property name="font">
     <font>
-     <family>华康POP2体W9(P)</family>
+     <family>Aa暗夜深渊 (非商业使用)</family>
      <pointsize>48</pointsize>
     </font>
    </property>
@@ -84,7 +84,7 @@
    </property>
    <property name="font">
     <font>
-     <family>华康POP2体W9(P)</family>
+     <family>Aa暗夜深渊 (非商业使用)</family>
      <pointsize>18</pointsize>
     </font>
    </property>
@@ -106,7 +106,7 @@
    </property>
    <property name="font">
     <font>
-     <family>华康POP2体W9(P)</family>
+     <family>Aa暗夜深渊 (非商业使用)</family>
      <pointsize>18</pointsize>
     </font>
    </property>
@@ -128,9 +128,9 @@
    </property>
    <property name="font">
     <font>
-     <family>得意黑</family>
+     <family>Aa暗夜深渊 (非商业使用)</family>
      <pointsize>26</pointsize>
-     <italic>true</italic>
+     <italic>false</italic>
     </font>
    </property>
    <property name="text">
@@ -151,13 +151,30 @@
    </property>
    <property name="font">
     <font>
-     <family>得意黑</family>
+     <family>Aa暗夜深渊 (非商业使用)</family>
      <pointsize>26</pointsize>
-     <italic>true</italic>
+     <italic>false</italic>
     </font>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>60</y>
+     <width>551</width>
+     <height>351</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>得意黑</family>
+     <pointsize>12</pointsize>
+     <italic>true</italic>
+    </font>
    </property>
   </widget>
  </widget>

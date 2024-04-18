@@ -16,9 +16,11 @@ Widget::~Widget()
 
 void Widget::on_startButton_clicked()
 {
+    SnakeGame::cleardowordSave();
     SnakeGame *game = new SnakeGame;
     game->show();
     connect(game, &SnakeGame::destroyed, game, &QObject::deleteLater);
+
     close();
 }
 
