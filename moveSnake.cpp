@@ -1,6 +1,6 @@
 #include "SnakeGame.h"
 #include "soundPlay.h"
-#include "gameover.h"
+#include "gameoverdialog.h"
 
 void SnakeGame::moveSnake() {
     QRect head = snake.first();
@@ -30,8 +30,10 @@ void SnakeGame::moveSnake() {
             highestScores = currentScores;
             writeHighestScoresToFile(currentScores);
         }
-        class gameOver *GO = new class gameOver;
-        GO->show();
+        // 在moveSnake函数的游戏结束部分替换代码
+        close();
+        GameOverDialog dialog(currentScores, highestScores, this);
+        dialog.exec();
         return;
     }
     bool ateFood = false;
@@ -47,8 +49,10 @@ void SnakeGame::moveSnake() {
                     writeHighestScoresToFile(currentScores);
                 }
                 timer->stop();
-                class gameOver *GO = new class gameOver;
-                GO->show();
+                // 在moveSnake函数的游戏结束部分替换代码
+                close();
+                GameOverDialog dialog(currentScores, highestScores, this);
+                dialog.exec();
 
                 return;
             }
@@ -99,8 +103,10 @@ void SnakeGame::moveSnake() {
                 writeHighestScoresToFile(currentScores);
             }
             timer->stop();
-            class gameOver *GO = new class gameOver;
-            GO->show();
+            // 在moveSnake函数的游戏结束部分替换代码
+            close();
+            GameOverDialog dialog(currentScores, highestScores, this);
+            dialog.exec();
 
             return;
         }

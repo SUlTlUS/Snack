@@ -18,6 +18,8 @@ class SnakeGame : public QWidget {
 public:
     explicit SnakeGame(QWidget *parent = nullptr);
     ~SnakeGame();
+    static void cleardowordSave();
+
 
 protected:
     void paintEvent(QPaintEvent *event) override;
