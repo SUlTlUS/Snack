@@ -19,6 +19,7 @@ public:
     explicit SnakeGame(QWidget *parent = nullptr);
     ~SnakeGame();
     static void cleardowordSave();
+    bool autoPlayEnabled = false;
 
 
 protected:
@@ -50,8 +51,11 @@ private:
     int course = 0;
     int lifecnt = 3;
     int currentScores = 0;
-    int highestScores;
+    int highestScores = 0;
     int moveDelay = 160;
+
+    void autoPlay();
+    bool isDirectionSafe(Qt::Key direction);
 };
 
 #endif // SNAKEGAME_H

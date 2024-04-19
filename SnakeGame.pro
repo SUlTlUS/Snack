@@ -11,11 +11,13 @@ CONFIG += c++17
 
 SOURCES += \
     SnakeGame.cpp \
+    autoPlay.cpp \
     cleardowordSave.cpp \
     gameoverdialog.cpp \
     generateFood.cpp \
     getRandomWord.cpp \
     highestScores.cpp \
+    isDirectionSafe.cpp \
     keyPressEvent.cpp \
     main.cpp \
     moveSnake.cpp \

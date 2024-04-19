@@ -18,6 +18,7 @@ void SnakeGame::keyPressEvent(QKeyEvent *event) {
         if (lastDirection != Qt::Key_Up)
             direction = Qt::Key_Down;
         break;
+
     default:
         break;
     }

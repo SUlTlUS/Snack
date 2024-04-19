@@ -6,6 +6,12 @@ void SnakeGame::moveSnake() {
     QRect head = snake.first();
     QRect newHead = head;
 
+    if (autoPlayEnabled) {
+        autoPlay();
+    }
+
+
+
     switch (direction) {
     case Qt::Key_Left:
         newHead.translate(-20, 0);
@@ -22,6 +28,7 @@ void SnakeGame::moveSnake() {
     default:
         break;
     }
+
     if (newHead.left() < 0 || newHead.right() >= width() || newHead.top() < 0 || newHead.bottom() >= height()) {
         timer->stop();
         Splayer.soundPlay(gameOver);
@@ -30,7 +37,6 @@ void SnakeGame::moveSnake() {
             highestScores = currentScores;
             writeHighestScoresToFile(currentScores);
         }
-        // 在moveSnake函数的游戏结束部分替换代码
         close();
         GameOverDialog dialog(currentScores, highestScores, this);
         dialog.exec();
@@ -49,7 +55,6 @@ void SnakeGame::moveSnake() {
                     writeHighestScoresToFile(currentScores);
                 }
                 timer->stop();
-                // 在moveSnake函数的游戏结束部分替换代码
                 close();
                 GameOverDialog dialog(currentScores, highestScores, this);
                 dialog.exec();
@@ -72,6 +77,9 @@ void SnakeGame::moveSnake() {
             currentScores += 20;
             if(moveDelay > 60) {
                 moveDelay -= 20;
+                timer->start(moveDelay);
+            }else if (moveDelay <=60 && moveDelay >30){
+                moveDelay -= 10;
                 timer->start(moveDelay);
             }
             if (currentScores > highestScores) {
@@ -103,7 +111,6 @@ void SnakeGame::moveSnake() {
                 writeHighestScoresToFile(currentScores);
             }
             timer->stop();
-            // 在moveSnake函数的游戏结束部分替换代码
             close();
             GameOverDialog dialog(currentScores, highestScores, this);
             dialog.exec();

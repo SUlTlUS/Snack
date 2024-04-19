@@ -5,7 +5,7 @@
 
 void SnakeGame::writeHighestScoresToFile(int currentScores) {
     QString filePath = QCoreApplication::applicationDirPath() + "/highestScores.txt";
-    QFile file(filePath); // Check if this path is correct
+    QFile file(filePath);
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
         out << currentScores;
@@ -19,11 +19,11 @@ void SnakeGame::writeHighestScoresToFile(int currentScores) {
 void SnakeGame::readHighestScoresFromFile() {
     highestScores = 0;
     QString filePath = QCoreApplication::applicationDirPath() + "/highestScores.txt";
-    QFile file(filePath); // 将文件保存到文件系统中
+    QFile file(filePath);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        QTextStream in(&file);
-        QString HSstr = in.readAll();
-        file.close();
-        highestScores = HSstr.toInt();
+            QTextStream in(&file);
+            QString HSstr = in.readAll();
+            file.close();
+            highestScores = HSstr.toInt();
     }
 }

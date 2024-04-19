@@ -28,3 +28,15 @@ void Widget::on_exitButton_clicked()
 {
     close();
 }
+
+void Widget::on_autoPlayButton_clicked()
+{
+    SnakeGame::cleardowordSave();
+    SnakeGame *game = new SnakeGame;
+    game->show();
+    game->autoPlayEnabled = true;
+    connect(game, &SnakeGame::destroyed, game, &QObject::deleteLater);
+
+    close();
+}
+
